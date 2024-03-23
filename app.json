@@ -7,7 +7,7 @@
     "plugins": [
       "expo-router"
     ],
-    "name": "mind-flow",
+    "name": "Mind Flow",
     "slug": "mind-flow"
   }
 }

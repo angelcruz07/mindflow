@@ -1,13 +1,16 @@
-# Expo Router Example
+<div align="center">
+<img src="https://res.cloudinary.com/dlklqucye/image/upload/v1710562810/mindflow-logo.webp" width='120' />
+<h1>Mind Flow</h1>
+<p>Final semestre project </p>
+</div>
 
-Use [`expo-router`](https://docs.expo.dev/router/introduction/) to build native navigation using files in the `app/` directory.
 
-## 🚀 How to use
+## Stack
 
-```sh
-npx create-expo-app -e with-router
-```
+- [React](https://reactjs.org/)
+- [ReactNative](https://reactnative.dev/)
+- [Expo](https://expo.dev/)
 
-## 📝 Notes
 
-- [Expo Router: Docs](https://docs.expo.dev/router/introduction/)
+## Getting Started
+
