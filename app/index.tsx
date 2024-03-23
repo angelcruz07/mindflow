@@ -1,7 +1,7 @@
 import  {Text, SafeAreaView, StyleSheet} from 'react-native'
 import { COLORS }  from "../src/constants";
 import {useRouter, Stack} from "expo-router";
-import { Main, AppBar } from "../src/components";
+import { Main, AppBar } from "@components";
 
 
 const Home = () => {
