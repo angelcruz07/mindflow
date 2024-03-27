@@ -44,6 +44,7 @@ export const Timer = () => {
                 </TouchableOpacity>
             </View>
             <Text style={{color: '#fff', marginTop: 15}}>Selecciona un estado de amimo para meditar</Text>
+            {/* Todo: Agregar los iconos y mejorar el diseño*/}
             <View style={styles.mood} >
                 {
                     MOOD.map((mood) => {
