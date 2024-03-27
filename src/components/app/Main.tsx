@@ -1,12 +1,16 @@
-import { View, Text } from 'react-native';
+import { View, StyleSheet } from 'react-native';
+import { Timer } from '@components';
 
-export const Main=  ()  => {
+export const Main = () => {
     return (
-        <View style={{flex: 1 }}>
-            <Text> Main </Text>
+        <View style={styles.container}>
+          <Timer/>
         </View>
     )
 }
 
-
-
+const styles = StyleSheet.create({
+    container: {
+        marginTop: 25
+    },
+})

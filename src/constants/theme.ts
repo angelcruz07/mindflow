@@ -9,7 +9,8 @@ const COLORS = {
         black: '#264129',
         darkestBlack: '#112213',
         background: '#121212',
-        white: '#fff'
+        white: '#fff',
+        backgroundSecundary: 'rgba(89, 89, 89, 0.3)',
 }
 
 

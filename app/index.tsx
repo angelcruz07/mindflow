@@ -1,5 +1,5 @@
-import  {Text, SafeAreaView, StyleSheet} from 'react-native'
-import { COLORS }  from "../src/constants";
+import {Text, SafeAreaView, StyleSheet, Image, View} from 'react-native'
+import { COLORS }  from "@constants";
 import {useRouter, Stack} from "expo-router";
 import { Main, AppBar } from "@components";
 
@@ -11,13 +11,13 @@ const Home = () => {
     return (
         <SafeAreaView style={styles.container}>
             <Stack.Screen style={styles.text} options={{
-                headerStyle: {backgroundColor: COLORS.background, color: COLORS.white},
-                headerTintColor: COLORS.white,
-                 headerTitle: "Mind  Flow"}}>
+                headerStyle: {backgroundColor: COLORS.background, color: COLORS.darker, fontWeight: 'bold'},
+                headerTintColor: COLORS.darker,
+                 headerTitle: "MINDFLOW"}}>
+                <Image source={ require('@images/logochico.webp')} width={20} height={20}/>
                 <Text style={styles.text}>Home</Text>
-
             </Stack.Screen>
-            <Main/>
+                <Main/>
             <AppBar/>
         </SafeAreaView>
     )
@@ -29,9 +29,9 @@ export default Home
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: COLORS.background
+        backgroundColor: COLORS.background,
     },
     text: {
         color: COLORS.white
-    }
+    },
 })
