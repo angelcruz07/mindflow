@@ -11,6 +11,9 @@ const COLORS = {
         background: '#121212',
         white: '#fff',
         backgroundSecundary: 'rgba(89, 89, 89, 0.3)',
+        //Eliminar arriba despues de agregar los nuevos colores
+        backgroundBottomBar: '#101918',
+        primaryColor: '#09F8BC'
 }
 
 

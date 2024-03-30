@@ -1,9 +1,9 @@
-import {View, TouchableOpacity, StyleSheet, Image} from 'react-native';
+import {View, TouchableOpacity, StyleSheet, Image, Text} from 'react-native';
 import { Link, useLocation } from 'react-router-native';
 import { COLORS } from '@constants'
 
 // @ts-ignore
-const AppBarTab = ({ children, to }) => {
+const AppBarTab = ({ to, text, children }) => {
     const { pathname } = useLocation();
     const active = pathname === to;
     const textStyles  = [
@@ -11,27 +11,38 @@ const AppBarTab = ({ children, to }) => {
         active && styles.active
     ]
     return (
-        <Link to={to} component={TouchableOpacity}>
-                {children}
-        </Link>
+            <TouchableOpacity activeOpacity={1}>
+                <Link to={to} >
+                    <View style={styles.link}>
+                        {children}
+                        <Text style={textStyles}>
+                            {text}
+                        </Text>
+                    </View>
+                </Link>
+            </TouchableOpacity>
     );
 };
 
 export const AppBar = () => {
     return (
         <View style={styles.appBar}>
-            <AppBarTab to="/"><Image source={ require('@images/home.webp')}/></AppBarTab>
-            <AppBarTab to="/meditation"><Image source={ require('@images/meditation.webp')}/></AppBarTab>
-            <AppBarTab to="/community"><Image source={ require('@images/community.webp')}/></AppBarTab>
-            <AppBarTab to="/resources"><Image source={ require('@images/file.webp')}/></AppBarTab>
-            <AppBarTab to="/libreria"><Image source={ require('@images/book.webp')}/></AppBarTab>
+            <AppBarTab to="/"  text='Inicio' >
+                <Image source={require('@images/home.webp')} />
+            </AppBarTab>
+            <AppBarTab to="/meditation" text='Meditacion '>
+                <Image source={ require('@images/meditation.webp')}/>
+            </AppBarTab>
+            <AppBarTab to="/community" text='Comunidad'>
+                <Image source={ require('@images/community.webp')}/>
+            </AppBarTab>
         </View>
     );
 };
 
 const styles = StyleSheet.create({
     appBar: {
-        backgroundColor: COLORS.mediumDark,
+        backgroundColor: COLORS.backgroundBottomBar,
         color: COLORS.white,
         height:  80,
         padding: 10,
@@ -43,12 +54,20 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         flexWrap: 'wrap',
     },
+    link: {
+        alignItems: 'center',
+        justifyContent: 'center',
+        gap: 15
+    },
     active: {
-        color: COLORS.darker,
+        color: COLORS.primaryColor,
     },
     text: {
-        color: COLORS.darker,
+        color: '#fff',
         paddingHorizontal: 10
     },
+    touchable: {
+
+    }
 });
 
