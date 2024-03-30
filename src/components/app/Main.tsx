@@ -1,16 +1,15 @@
-import { View, StyleSheet } from 'react-native';
+import { View, StyleSheet, Text } from 'react-native';
 import { Timer } from '@components';
+import { Navigate, Route, Routes } from 'react-router-native';
 
 export const Main = () => {
     return (
-        <View style={styles.container}>
-          <Timer/>
-        </View>
-    )
-}
+        <View>
+            <Routes>
+                <Route path="/" element={<Text>Hola</Text>} />
+                <Route path="/meditation" element={<Text>Hola</Text>} />
 
-const styles = StyleSheet.create({
-    container: {
-        marginTop: 25
-    },
-})
+            </Routes>
+        </View>
+    );
+};

@@ -1,45 +1,43 @@
-import {View, Image, StyleSheet, TouchableOpacity} from "react-native"
-import { COLORS } from '@constants'
-import {ViewStyle} from "react-native/Libraries/StyleSheet/StyleSheetTypes";
+import React from 'react';
+import { View, Text, TouchableWithoutFeedback, StyleSheet } from 'react-native';
+import { Link, useLocation } from 'react-router-native';
 
-interface AppBarStyles {
-    appBar: ViewStyle;
-}
+const AppBarTab = ({ children, to }: any) => {
+    const { pathname } = useLocation();
+    const active = pathname === to;
+
+    return (
+        <Link to={to} component={TouchableWithoutFeedback}>
+            <Text style={[styles.tabText, active && styles.activeTabText]}>
+                {children}
+            </Text>
+        </Link>
+    );
+};
 
 export const AppBar = () => {
     return (
         <View style={styles.appBar}>
-            <TouchableOpacity>
-                <Image source={ require('@images/home.webp')}/>
-            </TouchableOpacity>
-            <TouchableOpacity>
-                <Image source={ require('@images/meditation.webp')}/>
-            </TouchableOpacity>
-            <TouchableOpacity>
-                <Image source={ require('@images/community.webp')}/>
-            </TouchableOpacity>
-            <TouchableOpacity>
-                <Image source={ require('@images/file.webp')}/>
-            </TouchableOpacity>
-            <TouchableOpacity>
-                <Image source={ require('@images/book.webp')}/>
-            </TouchableOpacity>
+            <AppBarTab to="/">Inicio</AppBarTab>
+            <AppBarTab to="/meditation">Meditación</AppBarTab>
         </View>
-    )
-}
+    );
+};
 
-const styles :AppBarStyles  = StyleSheet.create({
+const styles = StyleSheet.create({
     appBar: {
-        backgroundColor: COLORS.mediumDark,
-        color: COLORS.white,
-        height:  80,
-        padding: 10,
-        position: "absolute",
-        bottom: 0,
-        width: "100%",
+        backgroundColor: '#333',
+        height: 80,
         flexDirection: 'row',
         justifyContent: 'space-around',
         alignItems: 'center',
-        flexWrap: 'wrap',
     },
-})
+    tabText: {
+        color: '#fff',
+        fontSize: 16,
+    },
+    activeTabText: {
+        fontWeight: 'bold', // Opcional: cambia el estilo del texto cuando está activo
+    },
+});
+

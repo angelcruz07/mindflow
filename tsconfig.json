@@ -7,7 +7,6 @@
     "strict": true,
     "skipLibCheck": true,
     "baseUrl": ".",
-    "include": ["**/*.ts", "**/*.tsx", ".expo/types/**/*.ts", "expo-env.d.ts"],
     "paths": {
       "*": ["src/*"],
       "@components/*": ["src/components/index.ts"],

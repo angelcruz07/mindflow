@@ -1,7 +1,8 @@
-import {Text, SafeAreaView, StyleSheet, Image, View} from 'react-native'
-import { COLORS }  from "@constants";
-import {useRouter, Stack} from "expo-router";
-import { Main, AppBar } from "@components";
+import {Text, SafeAreaView, StyleSheet, Image} from 'react-native'
+import { COLORS }  from "@constants"
+import {useRouter, Stack} from "expo-router"
+import {NativeRouter} from "react-router-native"
+import { Main } from "@components"
 
 
 const Home = () => {
@@ -17,8 +18,9 @@ const Home = () => {
                 <Image source={ require('@images/logochico.webp')} width={20} height={20}/>
                 <Text style={styles.text}>Home</Text>
             </Stack.Screen>
+            <NativeRouter>
                 <Main/>
-            <AppBar/>
+            </NativeRouter>
         </SafeAreaView>
     )
 }
