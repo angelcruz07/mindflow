@@ -1,17 +1,18 @@
-import React from 'react';
-import {View, Text, TouchableWithoutFeedback, StyleSheet, Image, TouchableOpacity} from 'react-native';
+import {View, TouchableOpacity, StyleSheet, Image} from 'react-native';
 import { Link, useLocation } from 'react-router-native';
 import { COLORS } from '@constants'
 
-const AppBarTab = ({ children, to }: any) => {
+// @ts-ignore
+const AppBarTab = ({ children, to }) => {
     const { pathname } = useLocation();
     const active = pathname === to;
-
+    const textStyles  = [
+        styles.text,
+        active && styles.active
+    ]
     return (
-        <Link to={to} component={TouchableWithoutFeedback}>
-            <TouchableOpacity>
+        <Link to={to} component={TouchableOpacity}>
                 {children}
-            </TouchableOpacity>
         </Link>
     );
 };
@@ -41,6 +42,13 @@ const styles = StyleSheet.create({
         justifyContent: 'space-around',
         alignItems: 'center',
         flexWrap: 'wrap',
+    },
+    active: {
+        color: COLORS.darker,
+    },
+    text: {
+        color: COLORS.darker,
+        paddingHorizontal: 10
     },
 });
 

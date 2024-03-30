@@ -1,22 +1,16 @@
-import {Text, SafeAreaView, StyleSheet, Image} from 'react-native'
-import { COLORS }  from "@constants"
-import {useRouter, Stack} from "expo-router"
-import {NativeRouter} from "react-router-native"
-import { Main } from "@components"
-
+import { SafeAreaView, StyleSheet } from 'react-native'
+import { COLORS }  from "@constants";
+import { Main }   from "@components/"
+import {Stack} from "expo-router";
+import { NativeRouter } from "react-router-native"
 
 const Home = () => {
-
-    const router  = useRouter()
-
     return (
         <SafeAreaView style={styles.container}>
             <Stack.Screen style={styles.text} options={{
                 headerStyle: {backgroundColor: COLORS.background, color: COLORS.darker, fontWeight: 'bold'},
                 headerTintColor: COLORS.darker,
-                 headerTitle: "MINDFLOW"}}>
-                <Image source={ require('@images/logochico.webp')} width={20} height={20}/>
-                <Text style={styles.text}>Home</Text>
+                headerTitle: "MINDFLOW"}}>
             </Stack.Screen>
             <NativeRouter>
                 <Main/>
@@ -26,7 +20,6 @@ const Home = () => {
 }
 
 export default Home
-
 
 const styles = StyleSheet.create({
     container: {
