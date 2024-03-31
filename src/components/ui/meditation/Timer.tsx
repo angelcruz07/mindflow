@@ -1,6 +1,6 @@
-import { StyleSheet, Text, TouchableOpacity, View, Image } from "react-native";
+import { StyleSheet, Text, TouchableOpacity, View, Image, ViewStyle, TextStyle, ImageStyle } from "react-native"
+import { LinearGradient } from 'expo-linear-gradient'
 import { COLORS } from "@constants";
-
 const MOOD = [
     {
         id: 1,
@@ -27,11 +27,19 @@ const MOOD = [
 export const Timer = () => {
     return (
         <View style={styles.container}>
-
             <TouchableOpacity style={styles.timer}>
-                <Text style={styles.text}>5:00</Text>
+                <LinearGradient
+                    // Array of colors for gradient
+                    colors={['rgba(64,199,148,1)', 'rgba(5,41,31,1)']}
+                    // Starting point of the gradient
+                    start={{ x: 0, y: 0 }}
+                    // Ending point of the gradient
+                    end={{ x: 1, y: 0 }}
+                    style={styles.gradient}
+                >
+                    <Text style={styles.text}>5:00</Text>
+                </LinearGradient>
             </TouchableOpacity>
-
             <View style={styles.playContainer}>
                 <TouchableOpacity style={styles.playButton}>
                     <Image source={require('@images/play.webp')} />
@@ -60,7 +68,20 @@ export const Timer = () => {
     );
 }
 
-const styles = StyleSheet.create({
+
+interface Styles {
+    container: ViewStyle;
+    mood: ViewStyle;
+    moodButton: ViewStyle;
+    moodText: TextStyle;
+    timer: ViewStyle;
+    playContainer: ViewStyle;
+    playButton: ViewStyle;
+    text: TextStyle;
+    gradient: ViewStyle;
+}
+
+const styles = StyleSheet.create<Styles>({
     container: {
         alignItems: 'center', // Aligning items in the center horizontally
     },
@@ -82,12 +103,8 @@ const styles = StyleSheet.create({
         fontSize: 10
     },
     timer: {
-        backgroundColor: COLORS.dark,
-        borderRadius: 1000,
-        width: 200,
         height: 200,
-        justifyContent: 'center',
-        alignItems: 'center',
+        width: 200,
     },
     playContainer: {
         marginTop: 30,
@@ -97,16 +114,23 @@ const styles = StyleSheet.create({
         gap: 20
     },
     playButton: {
-        justifyContent: 'center',
         alignItems: 'center',
         backgroundColor: COLORS.backgroundSecundary,
-        width: 60,
-        height: 60,
         borderRadius: 50,
+        height: 60,
+        justifyContent: 'center',
+        width: 60,
     },
     text: {
         color: COLORS.white,
         fontWeight: 'bold',
         fontSize: 28,
-    }
+    },
+    gradient: {
+        alignItems: 'center',
+        borderRadius: 1000,
+        flex: 1,
+        justifyContent: 'center',
+        width: 200,
+    },
 });
