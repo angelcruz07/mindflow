@@ -13,7 +13,8 @@ const COLORS = {
         backgroundSecundary: 'rgba(89, 89, 89, 0.3)',
         //Eliminar arriba despues de agregar los nuevos colores
         backgroundBottomBar: '#101918',
-        primaryColor: '#09F8BC'
+        primaryColor: '#09F8BC',
+        backgroundTopBar: '#131C1D'
 }
 
 

@@ -7,9 +7,10 @@ import { NativeRouter } from "react-router-native"
 const Home = () => {
     return (
         <SafeAreaView style={styles.container}>
-            <Stack.Screen style={styles.text} options={{
-                headerStyle: {backgroundColor: COLORS.background, color: COLORS.darker, fontWeight: 'bold'},
-                headerTintColor: COLORS.darker,
+            <Stack.Screen options={{
+                headerStyle: {backgroundColor: COLORS.backgroundTopBar, fontWeight: 'bold'},
+                headerTintColor: COLORS.primaryColor,
+                headerTitleAlign: 'center',
                 headerTitle: "MINDFLOW"}}>
             </Stack.Screen>
             <NativeRouter>
@@ -24,9 +25,5 @@ export default Home
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: COLORS.background,
-    },
-    text: {
-        color: COLORS.white
     },
 })
