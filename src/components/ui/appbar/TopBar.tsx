@@ -1,6 +1,6 @@
 import React from 'react'
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native'
-import { COLORS } from '@constants'
+import { COLORS, SIZES } from '@constants'
 import { useLocation, Link } from 'react-router-native'
 
 // @ts-ignore
@@ -55,8 +55,8 @@ const styles = StyleSheet.create({
 	active: {
 		backgroundColor: COLORS.backgroundSecundary,
 		color: COLORS.primaryColor,
-		padding: 10,
-		borderRadius: 10
+		padding: SIZES.spacing.regular,
+		borderRadius: SIZES.borderSizes.standard
 	},
 	link: {
 		alignItems: 'center',
