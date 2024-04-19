@@ -4,6 +4,9 @@
 <p>Final semestre project </p>
 </div>
 
+## Desing
+
+[Ver figma](https://www.figma.com/proto/rSin9xLj5An2hcM90Q3ksH/MindFlow?node-id=210-238)
 
 ## Stack
 
@@ -11,6 +14,4 @@
 - [ReactNative](https://reactnative.dev/)
 - [Expo](https://expo.dev/)
 
-
 ## Getting Started
-
