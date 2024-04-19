@@ -20,8 +20,10 @@ export const Main = () => {
 				<TopBar />
 				<Routes>
 					<Route path='/' element={<Timer />} />
-					<Route path='/meditation' element={<Text>Vete a la verga</Text>} />
-					<Route path='/community' element={<Text>No mi compa</Text>} />
+					<Route path='/meditation' element={<Text>Meditacion</Text>} />
+					<Route path='/community' element={<Text>Comunidad</Text>} />
+					<Route path='/summary' element={<Text>Resumen</Text>} />
+					<Route path='/calendar' element={<Text>Calendario</Text>} />
 					<Route path='*' element={<Navigate to='/' />} />
 				</Routes>
 				<AppBar />

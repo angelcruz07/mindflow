@@ -7,17 +7,15 @@ import { useLocation, Link } from 'react-router-native'
 const TopBarTab = ({ to, text }) => {
 	const { pathname } = useLocation()
 	const active = pathname === to
-	const textStyles = [
-		styles.text,
-		active && styles.active,
-		active && styles.textActive
-	]
+	// color if active
+	const textStyle = active ? styles.textActive : styles.text
+	const containerStyle = active ? styles.active : styles.link
 
 	return (
 		<TouchableOpacity activeOpacity={1}>
 			<Link to={to}>
-				<View style={textStyles}>
-					<Text style={styles.text}>{text}</Text>
+				<View style={containerStyle}>
+					<Text style={textStyle}>{text}</Text>
 				</View>
 			</Link>
 		</TouchableOpacity>
@@ -28,13 +26,12 @@ export const TopBar = () => {
 	return (
 		<View style={styles.topBar}>
 			<TopBarTab to='/' text='Meditacion'></TopBarTab>
-			<TopBarTab to='/resumen' text='Resumen'></TopBarTab>
+			<TopBarTab to='/summary' text='Resumen'></TopBarTab>
 			<TopBarTab to='/calendar' text='Calendario'></TopBarTab>
 		</View>
 	)
 }
 
-// TODO: Crear la interfaz del top bar
 const styles = StyleSheet.create({
 	topBar: {
 		flexDirection: 'row',
@@ -57,6 +54,7 @@ const styles = StyleSheet.create({
 	},
 	active: {
 		backgroundColor: COLORS.backgroundSecundary,
+		color: COLORS.primaryColor,
 		padding: 10,
 		borderRadius: 10
 	},
