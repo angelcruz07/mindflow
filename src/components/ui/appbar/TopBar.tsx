@@ -38,7 +38,6 @@ const styles = StyleSheet.create({
 		alignItems: 'center',
 		justifyContent: 'center',
 		gap: 10,
-		backgroundColor: COLORS.backgroundSecundary,
 		padding: 10,
 		borderRadius: 10,
 		margin: 20

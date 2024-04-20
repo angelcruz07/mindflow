@@ -1,28 +1,7 @@
 import { StyleSheet, Text, TouchableOpacity, View, Image, ViewStyle, TextStyle, ImageStyle } from "react-native"
 import { LinearGradient } from 'expo-linear-gradient'
-import { COLORS } from "@constants";
-const MOOD = [
-    {
-        id: 1,
-        name: 'Todos',
-    },
-    {
-        id: 2,
-        name: 'Dormir',
-    },
-    {
-        id: 3,
-        name: 'Relajarse'
-    },
-    {
-        id: 4,
-        name: 'Feliz'
-    },
-    {
-        id: 5,
-        name: 'Cansado'
-    }
-];
+import { COLORS, SIZES } from "@constants";
+import { MOOD } from 'data'
 
 export const Timer = () => {
     return (
@@ -51,15 +30,20 @@ export const Timer = () => {
                     <Image source={require('@images/reset.webp')} />
                 </TouchableOpacity>
             </View>
-            <Text style={{color: '#fff', marginTop: 15}}>Selecciona un estado de amimo para meditar</Text>
+
+            <Text style={{color: '#fff', marginTop: 15}}>Selecciona tu mood</Text>
+
             {/* Todo: Agregar los iconos y mejorar el diseño*/}
             <View style={styles.mood} >
                 {
                     MOOD.map((mood) => {
                         return (
-                            <TouchableOpacity style={styles.moodButton} key={mood.id}>
+                            <View style={styles.moodContainer}>
+                                <TouchableOpacity style={styles.moodButton} key={mood.id}>
+                                    <Image source={ mood.img } width={20} height={20} />
+                                </TouchableOpacity>
                                 <Text style={styles.moodText}>{mood.name}</Text>
-                            </TouchableOpacity>
+                            </View>
                         )
                     })
                 }
@@ -87,15 +71,28 @@ const styles = StyleSheet.create<Styles>({
     },
     mood: {
       flexDirection: 'row',
-        gap: 20,
-        marginTop: 20,
+        gap: 15,
+        margin: 15,
+        backgroundColor: COLORS.backgroundSecundary,
+        padding: SIZES.spacing.large,
+        borderRadius: SIZES.borderSizes.standard,
+        justifyContent: 'center',
+        alignItems: 'center',
+
+    },
+    moodContainer: {
+      flexDirection: 'column',
+      justifyContent: 'center',
+      alignItems: 'center',
     },
    moodButton: {
        backgroundColor:  COLORS.backgroundSecundary,
         padding: 10,
         borderRadius: 30,
-        height: 80,
+        width: 40,
+        height: 40,
         justifyContent: 'center',
+        alignItems: 'center',
         maxWidth: 65,
    },
     moodText:{
@@ -105,6 +102,13 @@ const styles = StyleSheet.create<Styles>({
     timer: {
         height: 200,
         width: 200,
+        shadowOffset: {
+            width: 0,
+            height: 10,
+        },
+        shadowColor: "#000",
+        shadowOpacity: 0.25,
+        shadowRadius: 3.84,
     },
     playContainer: {
         marginTop: 30,

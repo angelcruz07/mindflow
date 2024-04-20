@@ -11,7 +11,8 @@ module.exports = function(api) {
             alias: {
                '@components': './src/components/index.ts',
                 '@constants': './src/constants/index.ts',
-                '@images': './public/img/'
+                '@images': './public/img/',
+                '@data': './src/data/'
             }
             }
         ]
