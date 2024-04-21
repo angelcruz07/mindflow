@@ -1,19 +1,20 @@
 {
-  "compilerOptions": {
-    "target": "es2016",
-    "module": "commonjs",
-    "esModuleInterop": true,
-    "forceConsistentCasingInFileNames": true,
-    "strict": true,
-    "skipLibCheck": true,
-    "baseUrl": ".",
-    "paths": {
-      "*": ["src/*"],
-      "@components/*": ["src/components/index.ts"],
-      "@constants" : ["src/constants/index.ts"],
-      "@images/*": ["public/img/*"],
-      "@data/*": ["src/data/*"]
-    }
-  },
-  "extends": "expo/tsconfig.base"
+	"compilerOptions": {
+		"target": "es2016",
+		"module": "commonjs",
+		"esModuleInterop": true,
+		"forceConsistentCasingInFileNames": true,
+		"strict": true,
+		"skipLibCheck": true,
+		"baseUrl": ".",
+		"paths": {
+			"*": ["src/*"],
+			"@components/*": ["src/components/index.ts"],
+			"@constants": ["src/constants/index.ts"],
+			"@images/*": ["public/img/*"],
+			"@data/*": ["src/data/*"],
+			"@types": ["./src/types.d.ts"]
+		}
+	},
+	"extends": "expo/tsconfig.base"
 }
