@@ -32,9 +32,9 @@ export const Timer = () => {
 
 			{/* Todo: Agregar los iconos y mejorar el diseño*/}
 			<View style={styles.mood}>
-				{MOOD.map((mood) => {
+				{MOOD.map((mood, index) => {
 					return (
-						<View style={styles.moodContainer}>
+						<View key={index} style={styles.moodContainer}>
 							<TouchableOpacity style={styles.moodButton} key={mood.id}>
 								<Image source={mood.img} width={20} height={20} />
 							</TouchableOpacity>

@@ -6,6 +6,18 @@
 		},
 		"plugins": ["expo-router"],
 		"name": "Mind Flow",
-		"slug": "mind-flow"
+		"slug": "mind-flow",
+		"icon": "./assets/icon.png",
+		"splash": {
+			"image": "./assets/splash.png",
+			"resizeMode": "contain",
+			"backgroundColor": "#ffffff"
+		},
+		"android": {
+			"adaptiveIcon": {
+				"foregroundImage": "./assets/adaptive-icon.png",
+				"backgroundColor": "#FFFFFF"
+			}
+		}
 	}
 }

@@ -1,12 +1,10 @@
 import { View, StyleSheet } from 'react-native'
-import {
-	Summary,
-	AppBar,
-	Timer,
-	TopBar,
-	MeditationPage,
-	CalendarPage
-} from '../index'
+import { TopBar } from '../ui/appbar/TopBar'
+import { Timer } from '../ui/meditation/Timer'
+import { MeditationPage } from '../app/meditation/MeditationPage'
+import { Summary } from '../app/summary/SummaryPage'
+import { CalendarPage } from '../app/calendar/CalendarPage'
+import { AppBar } from '../ui/appbar/AppBar'
 import { Navigate, Route, Routes } from 'react-router-native'
 import { LinearGradient } from 'expo-linear-gradient'
 
