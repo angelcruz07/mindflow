@@ -28,9 +28,6 @@ export const AppBar = () => {
 			<AppBarTab to='/meditation' text='Meditacion '>
 				<Image source={require('@images/meditation.webp')} />
 			</AppBarTab>
-			<AppBarTab to='/community' text='Comunidad'>
-				<Image source={require('@images/community.webp')} />
-			</AppBarTab>
 		</View>
 	)
 }
@@ -40,7 +37,7 @@ const styles = StyleSheet.create({
 		backgroundColor: COLORS.backgroundBottomBar,
 		color: COLORS.white,
 		height: 80,
-		padding: 10,
+		padding: 8,
 		position: 'absolute',
 		bottom: 0,
 		width: '100%',
@@ -60,6 +57,5 @@ const styles = StyleSheet.create({
 	text: {
 		color: '#fff',
 		paddingHorizontal: 10
-	},
-	touchable: {}
+	}
 })
