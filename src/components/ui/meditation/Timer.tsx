@@ -90,7 +90,7 @@ export const Timer = () => {
 									style={styles.moodButton}
 									key={mood.id}
 									onPress={() => handleMoodPress(mood)}>
-									<Image source={mood.img} width={20} height={20} />
+									{mood.icon}
 								</TouchableOpacity>
 								<Text style={styles.moodText}>{mood.name}</Text>
 							</View>
