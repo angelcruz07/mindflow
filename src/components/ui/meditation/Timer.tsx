@@ -4,11 +4,8 @@ import { COLORS, SIZES } from '@constants'
 import { MOOD } from 'data'
 import { useState, useEffect } from 'react'
 import { StylesTimer } from 'types'
-import { Feather } from '@expo/vector-icons'
-import { AntDesign } from '@expo/vector-icons'
-import { Entypo } from '@expo/vector-icons'
-import { FontAwesome5 } from '@expo/vector-icons'
-import { Ionicons } from '@expo/vector-icons'
+import { Ionicons, AntDesign } from '@expo/vector-icons'
+
 interface Mood {
 	timer: number
 }
