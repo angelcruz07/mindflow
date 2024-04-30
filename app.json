@@ -1,13 +1,11 @@
 {
-  "expo": {
-    "scheme": "acme",
-    "web": {
-      "bundler": "metro"
-    },
-    "plugins": [
-      "expo-router"
-    ],
-    "name": "Mind Flow",
-    "slug": "mind-flow",
-  }
+	"expo": {
+		"scheme": "acme",
+		"web": {
+			"bundler": "metro"
+		},
+		"plugins": ["expo-router"],
+		"name": "Mind Flow",
+		"slug": "mind-flow"
+	}
 }

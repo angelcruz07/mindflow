@@ -1,10 +1,14 @@
-import { View, Text, StyleSheet } from 'react-native'
-import { Timer } from '../ui/meditation/Timer'
-import { AppBar } from '../ui/appbar/AppBar'
-import { NativeRouter, Navigate, Route, Routes } from 'react-router-native'
-import { COLORS } from '@constants'
+import { View, StyleSheet } from 'react-native'
+import {
+	Summary,
+	AppBar,
+	Timer,
+	TopBar,
+	MeditationPage,
+	CalendarPage
+} from '../index'
+import { Navigate, Route, Routes } from 'react-router-native'
 import { LinearGradient } from 'expo-linear-gradient'
-import { TopBar } from 'components/ui/appbar/TopBar'
 
 export const Main = () => {
 	return (
@@ -20,10 +24,9 @@ export const Main = () => {
 				<TopBar />
 				<Routes>
 					<Route path='/' element={<Timer />} />
-					<Route path='/meditation' element={<Text>Meditacion</Text>} />
-					<Route path='/community' element={<Text>Comunidad</Text>} />
-					<Route path='/summary' element={<Text>Resumen</Text>} />
-					<Route path='/calendar' element={<Text>Calendario</Text>} />
+					<Route path='/meditation' element={<MeditationPage />} />
+					<Route path='/summary' element={<Summary />} />
+					<Route path='/calendar' element={<CalendarPage />} />
 					<Route path='*' element={<Navigate to='/' />} />
 				</Routes>
 				<AppBar />
