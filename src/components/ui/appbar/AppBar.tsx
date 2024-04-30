@@ -1,6 +1,7 @@
 import { View, TouchableOpacity, StyleSheet, Image, Text } from 'react-native'
 import { Link, useLocation } from 'react-router-native'
 import { COLORS } from '@constants'
+import { MaterialCommunityIcons, Entypo } from '@expo/vector-icons'
 
 // @ts-ignore
 const AppBarTab = ({ to, text, children }) => {
@@ -23,10 +24,10 @@ export const AppBar = () => {
 	return (
 		<View style={styles.appBar}>
 			<AppBarTab to='/' text='Inicio'>
-				<Image source={require('@images/home.webp')} />
+				<Entypo name='home' size={24} color='white' />
 			</AppBarTab>
 			<AppBarTab to='/meditation' text='Meditacion '>
-				<Image source={require('@images/meditation.webp')} />
+				<MaterialCommunityIcons name='meditation' size={24} color='white' />
 			</AppBarTab>
 		</View>
 	)
@@ -49,7 +50,7 @@ const styles = StyleSheet.create({
 	link: {
 		alignItems: 'center',
 		justifyContent: 'center',
-		gap: 15
+		gap: 2
 	},
 	active: {
 		color: COLORS.primaryColor
