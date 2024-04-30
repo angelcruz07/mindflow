@@ -4,11 +4,26 @@ import { COLORS, SIZES } from '@constants'
 import { MOOD } from 'data'
 import { useState, useEffect } from 'react'
 import { StylesTimer } from 'types'
+import { Feather } from '@expo/vector-icons'
+import { AntDesign } from '@expo/vector-icons'
+import { Entypo } from '@expo/vector-icons'
+import { FontAwesome5 } from '@expo/vector-icons'
+import { Ionicons } from '@expo/vector-icons'
+interface Mood {
+	timer: number
+}
 
 export const Timer = () => {
-	const [timer, setTimer] = useState(5)
+	// Todo: Agregar sonido a las meditaciones
+	const [meditationTime, setMeditationTime] = useState<number | null>(null)
+	const [timer, setTimer] = useState(0)
 	const [isActive, setIsActive] = useState(false)
 	const [isPaused, setIsPaused] = useState(false)
+
+	const handleMoodPress = (mood: Mood) => {
+		setMeditationTime(mood.timer)
+		setTimer(mood.timer)
+	}
 
 	useEffect(() => {
 		let intervalId: ReturnType<typeof setInterval>
@@ -24,17 +39,21 @@ export const Timer = () => {
 		}
 	}, [isActive, isPaused])
 
-	const handleStart = () => {
-		setIsActive(true)
-		setIsPaused(false)
-	}
-	const handlePause = () => {
-		setIsPaused(true)
+	const handleToggleTimer = () => {
+		if (isActive) {
+			setIsActive(false)
+			setIsPaused(false)
+		} else {
+			setIsActive(true)
+			setIsPaused(false)
+		}
 	}
 	const handleReset = () => {
 		setIsActive(false)
 		setIsPaused(false)
-		setTimer(0)
+		if (meditationTime !== null) {
+			setTimer(meditationTime)
+		}
 	}
 
 	return (
@@ -45,35 +64,42 @@ export const Timer = () => {
 					start={{ x: 0, y: 0 }}
 					end={{ x: 1, y: 0 }}
 					style={styles.gradient}>
-					<Text style={styles.text}>{timer}</Text>
+					<Text style={styles.text}>
+						{Math.floor(timer / 60)}:{timer % 60 < 10 ? '0' : ''}
+						{timer % 60}
+					</Text>
 				</LinearGradient>
 			</TouchableOpacity>
 			<View style={styles.playContainer}>
-				<TouchableOpacity style={styles.playButton} onPress={handleStart}>
-					<Image source={require('@images/play.webp')} />
-				</TouchableOpacity>
-				<TouchableOpacity style={styles.playButton} onPress={handlePause}>
-					<Image source={require('@images/stop.webp')} />
+				<TouchableOpacity style={styles.playButton} onPress={handleToggleTimer}>
+					{isActive ? (
+						<AntDesign name='pause' size={35} color='#595959' />
+					) : (
+						<Ionicons name='play-circle-sharp' size={45} color='#595959' />
+					)}
 				</TouchableOpacity>
 				<TouchableOpacity style={styles.playButton} onPress={handleReset}>
-					<Image source={require('@images/reset.webp')} />
+					<AntDesign name='reload1' size={30} color='#595959' />
 				</TouchableOpacity>
 			</View>
 
-			<Text style={{ color: '#fff', marginTop: 15 }}>Selecciona tu mood</Text>
-
-			{/* Todo: Agregar los iconos y mejorar el diseño*/}
-			<View style={styles.mood}>
-				{MOOD.map((mood, index) => {
-					return (
-						<View key={index} style={styles.moodContainer}>
-							<TouchableOpacity style={styles.moodButton} key={mood.id}>
-								<Image source={mood.img} width={20} height={20} />
-							</TouchableOpacity>
-							<Text style={styles.moodText}>{mood.name}</Text>
-						</View>
-					)
-				})}
+			<View style={styles.moodContainer}>
+				<Text style={{ color: '#fff' }}>Selecciona tu mood</Text>
+				<View style={styles.mood}>
+					{MOOD.map((mood, index) => {
+						return (
+							<View key={index} style={styles.moodContainerButton}>
+								<TouchableOpacity
+									style={styles.moodButton}
+									key={mood.id}
+									onPress={() => handleMoodPress(mood)}>
+									<Image source={mood.img} width={20} height={20} />
+								</TouchableOpacity>
+								<Text style={styles.moodText}>{mood.name}</Text>
+							</View>
+						)
+					})}
+				</View>
 			</View>
 		</View>
 	)
@@ -81,19 +107,26 @@ export const Timer = () => {
 
 const styles = StyleSheet.create<StylesTimer>({
 	container: {
-		alignItems: 'center'
+		alignItems: 'center',
+		marginTop: 80
+	},
+	moodContainer: {
+		marginTop: 40,
+		flexDirection: 'column',
+		justifyContent: 'center',
+		alignItems: 'center',
+		gap: 15
 	},
 	mood: {
 		flexDirection: 'row',
 		gap: 15,
-		margin: 15,
 		backgroundColor: COLORS.backgroundSecundary,
 		padding: SIZES.spacing.large,
 		borderRadius: SIZES.borderSizes.standard,
 		justifyContent: 'center',
 		alignItems: 'center'
 	},
-	moodContainer: {
+	moodContainerButton: {
 		flexDirection: 'column',
 		justifyContent: 'center',
 		alignItems: 'center'

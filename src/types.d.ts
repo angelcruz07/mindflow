@@ -10,5 +10,6 @@ export interface StylesTimer {
 	playButton: ViewStyle
 	text: TextStyle
 	gradient: ViewStyle
+	moodContainerButton: ViewStyle
 	moodContainer: ViewStyle
 }
