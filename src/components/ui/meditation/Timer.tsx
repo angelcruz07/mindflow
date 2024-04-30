@@ -2,9 +2,41 @@ import { StyleSheet, Text, TouchableOpacity, View, Image } from 'react-native'
 import { LinearGradient } from 'expo-linear-gradient'
 import { COLORS, SIZES } from '@constants'
 import { MOOD } from 'data'
+import { useState, useEffect } from 'react'
 import { StylesTimer } from 'types'
 
 export const Timer = () => {
+	const [timer, setTimer] = useState(5)
+	const [isActive, setIsActive] = useState(false)
+	const [isPaused, setIsPaused] = useState(false)
+
+	useEffect(() => {
+		let intervalId: ReturnType<typeof setInterval>
+
+		if (isActive && !isPaused) {
+			intervalId = setInterval(() => {
+				setTimer((timer) => timer - 1)
+			}, 1000)
+		}
+
+		return () => {
+			clearInterval(intervalId)
+		}
+	}, [isActive, isPaused])
+
+	const handleStart = () => {
+		setIsActive(true)
+		setIsPaused(false)
+	}
+	const handlePause = () => {
+		setIsPaused(true)
+	}
+	const handleReset = () => {
+		setIsActive(false)
+		setIsPaused(false)
+		setTimer(0)
+	}
+
 	return (
 		<View style={styles.container}>
 			<TouchableOpacity style={styles.timer}>
@@ -13,17 +45,17 @@ export const Timer = () => {
 					start={{ x: 0, y: 0 }}
 					end={{ x: 1, y: 0 }}
 					style={styles.gradient}>
-					<Text style={styles.text}>5:00</Text>
+					<Text style={styles.text}>{timer}</Text>
 				</LinearGradient>
 			</TouchableOpacity>
 			<View style={styles.playContainer}>
-				<TouchableOpacity style={styles.playButton}>
+				<TouchableOpacity style={styles.playButton} onPress={handleStart}>
 					<Image source={require('@images/play.webp')} />
 				</TouchableOpacity>
-				<TouchableOpacity style={styles.playButton}>
+				<TouchableOpacity style={styles.playButton} onPress={handlePause}>
 					<Image source={require('@images/stop.webp')} />
 				</TouchableOpacity>
-				<TouchableOpacity style={styles.playButton}>
+				<TouchableOpacity style={styles.playButton} onPress={handleReset}>
 					<Image source={require('@images/reset.webp')} />
 				</TouchableOpacity>
 			</View>
