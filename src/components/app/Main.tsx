@@ -1,7 +1,6 @@
 import { View, StyleSheet } from 'react-native'
 import { TopBar } from '../ui/appbar/TopBar'
 import { Timer } from '../ui/meditation/Timer'
-import { MeditationPage } from '../app/meditation/MeditationPage'
 import { Summary } from '../app/summary/SummaryPage'
 import { CalendarPage } from '../app/calendar/CalendarPage'
 import { AppBar } from '../ui/appbar/AppBar'
@@ -22,7 +21,7 @@ export const Main = () => {
 				<TopBar />
 				<Routes>
 					<Route path='/' element={<Timer />} />
-					<Route path='/meditation' element={<MeditationPage />} />
+					<Route path='/meditation' element={<Timer />} />
 					<Route path='/summary' element={<Summary />} />
 					<Route path='/calendar' element={<CalendarPage />} />
 					<Route path='*' element={<Navigate to='/' />} />
