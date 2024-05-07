@@ -1,7 +1,7 @@
 import { View, TouchableOpacity, StyleSheet, Image, Text } from 'react-native'
 import { Link, useLocation } from 'react-router-native'
 import { COLORS } from '@constants'
-import { MaterialCommunityIcons, Entypo } from '@expo/vector-icons'
+import { AntDesign, Entypo } from '@expo/vector-icons'
 
 // @ts-ignore
 const AppBarTab = ({ to, text, children }) => {
@@ -26,8 +26,8 @@ export const AppBar = () => {
 			<AppBarTab to='/' text='Inicio'>
 				<Entypo name='home' size={24} color='white' />
 			</AppBarTab>
-			<AppBarTab to='/meditation' text='Meditacion '>
-				<MaterialCommunityIcons name='meditation' size={24} color='white' />
+			<AppBarTab to='/summary' text='Resumen'>
+				<AntDesign name='filetext1' size={22} color='white' />
 			</AppBarTab>
 		</View>
 	)
