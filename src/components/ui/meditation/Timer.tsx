@@ -10,6 +10,8 @@ interface Mood {
 	timer: number
 }
 
+const DEFAULT_TIME = 300
+
 export const Timer = () => {
 	// Todo: Agregar sonido a las meditaciones
 	const [meditationTime, setMeditationTime] = useState<number | null>(null)
@@ -41,6 +43,10 @@ export const Timer = () => {
 			setIsActive(false)
 			setIsPaused(false)
 		} else {
+			if (meditationTime === null) {
+				setMeditationTime(DEFAULT_TIME)
+				setTimer(DEFAULT_TIME)
+			}
 			setIsActive(true)
 			setIsPaused(false)
 		}
