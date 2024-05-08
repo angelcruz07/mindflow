@@ -1,7 +1,8 @@
 import React from 'react'
 import { View, Text, StyleSheet } from 'react-native'
-import { COLORS, SIZES } from '@constants'
+import { SIZES } from '@constants'
 import { LinearGradient } from 'expo-linear-gradient'
+import { Calendar } from '../../ui/calendar/Calendar'
 
 export const Summary = () => {
 	return (
@@ -17,6 +18,10 @@ export const Summary = () => {
 					<Text style={styles.months}>Meses</Text>
 				</LinearGradient>
 			</View>
+
+			<View>
+				<Calendar />
+			</View>
 		</View>
 	)
 }
@@ -30,7 +35,8 @@ const styles = StyleSheet.create({
 	title: {
 		color: '#fff',
 		textAlign: 'center',
-		fontSize: SIZES.fontSizes.large
+		fontSize: SIZES.fontSizes.large,
+		fontWeight: '500'
 	},
 	containerSummary: {
 		width: 200,
@@ -52,6 +58,7 @@ const styles = StyleSheet.create({
 	},
 	months: {
 		color: '#fff',
-		fontSize: SIZES.fontSizes.large
+		fontSize: SIZES.fontSizes.large,
+		fontWeight: 'bold'
 	}
 })

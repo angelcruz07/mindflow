@@ -1,11 +1,12 @@
 import React from 'react'
-import { View, Text } from 'react-native'
+import { View } from 'react-native'
 import { Notes } from '../../ui/notes/Notes'
+import { Calendar } from '../../ui/calendar/Calendar'
 
 export const CalendarPage = () => {
 	return (
 		<View style={styles.container}>
-			<Text>Calendar</Text>
+			<Calendar />
 			<Notes />
 		</View>
 	)
