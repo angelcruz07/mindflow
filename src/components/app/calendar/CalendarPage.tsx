@@ -4,9 +4,15 @@ import { Notes } from '../../ui/notes/Notes'
 
 export const CalendarPage = () => {
 	return (
-		<View>
-			<Text>Calendar Page</Text>
+		<View style={styles.container}>
+			<Text>Calendar</Text>
 			<Notes />
 		</View>
 	)
+}
+
+const styles = {
+	container: {
+		padding: 30
+	}
 }

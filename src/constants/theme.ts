@@ -14,7 +14,8 @@ const COLORS = {
 	//Eliminar arriba despues de agregar los nuevos colores
 	backgroundBottomBar: '#101918',
 	primaryColor: '#09F8BC',
-	backgroundTopBar: '#131C1D'
+	backgroundTopBar: '#131C1D',
+	colorNote: '#00362D'
 }
 
 const SIZES = {
