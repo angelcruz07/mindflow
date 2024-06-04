@@ -1,33 +1,41 @@
 import React from 'react'
-import { View, Text, StyleSheet } from 'react-native'
+import { View, Text, StyleSheet, ScrollView } from 'react-native'
 import { SIZES } from '@constants'
 import { LinearGradient } from 'expo-linear-gradient'
-// import { Calendar } from '../../ui/calendar/Calendar'
+import { CalendarApp } from '../../ui/calendar/Calendar'
 
 export const Summary = () => {
 	return (
-		<View style={styles.container}>
-			<Text style={styles.title}>Has meditado durante:</Text>
-			<View style={styles.containerSummary}>
-				<LinearGradient
-					colors={['rgba(64,199,148,1)', 'rgba(5,41,31,1)']}
-					start={{ x: 0, y: 0 }}
-					end={{ x: 1, y: 0 }}
-					style={styles.gradient}>
-					<Text style={styles.months}>3</Text>
-					<Text style={styles.months}>Meses</Text>
-				</LinearGradient>
-			</View>
+		<ScrollView
+			showsVerticalScrollIndicator={false}
+			contentContainerStyle={{ paddingBottom: 20 }}>
+			<View style={styles.container}>
+				<View style={styles.summary}>
+					<Text style={styles.title}>Has meditado durante:</Text>
+					<View style={styles.containerSummary}>
+						<LinearGradient
+							colors={['rgba(64,199,148,1)', 'rgba(5,41,31,1)']}
+							start={{ x: 0, y: 0 }}
+							end={{ x: 1, y: 0 }}
+							style={styles.gradient}>
+							<Text style={styles.months}>3</Text>
+							<Text style={styles.months}>Meses</Text>
+						</LinearGradient>
+					</View>
+				</View>
 
-			<View>{/* <Calendar /> */}</View>
-		</View>
+				<View style={styles.containerCalendar}>
+					<CalendarApp />
+				</View>
+			</View>
+		</ScrollView>
 	)
 }
 
 const styles = StyleSheet.create({
 	container: {
 		flex: 1,
-		alignItems: 'center',
+		padding: 30,
 		gap: 50
 	},
 	title: {
@@ -35,6 +43,10 @@ const styles = StyleSheet.create({
 		textAlign: 'center',
 		fontSize: SIZES.fontSizes.large,
 		fontWeight: '500'
+	},
+	summary: {
+		justifyContent: 'center',
+		alignItems: 'center'
 	},
 	containerSummary: {
 		width: 200,
@@ -46,6 +58,9 @@ const styles = StyleSheet.create({
 		shadowColor: '#000',
 		shadowOpacity: 0.25,
 		shadowRadius: 3.84
+	},
+	containerCalendar: {
+		paddingBottom: 50
 	},
 	gradient: {
 		alignItems: 'center',
