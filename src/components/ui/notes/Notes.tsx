@@ -62,7 +62,7 @@ export const Notes = () => {
 	}
 
 	return (
-		<View>
+		<View style={styles.containter}>
 			<Text style={styles.subtitle}>Pensamientos:</Text>
 			<View style={styles.containerNotes}>
 				{notes.map((note) => (
@@ -96,6 +96,9 @@ export const Notes = () => {
 }
 
 const styles = StyleSheet.create({
+	containter: {
+		paddingBottom: 100
+	},
 	containerNotes: {
 		flexDirection: 'row',
 		flexWrap: 'wrap',
