@@ -15,7 +15,8 @@ const COLORS = {
 	backgroundBottomBar: '#101918',
 	primaryColor: '#09F8BC',
 	backgroundTopBar: '#131C1D',
-	colorNote: '#00362D'
+	colorNote: '#00362D',
+	disableColor: '#615C5C'
 }
 
 const SIZES = {
@@ -35,5 +36,7 @@ const SIZES = {
 		large: 20
 	}
 }
+
+const FONT = {}
 
 export { COLORS, SIZES }
