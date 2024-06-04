@@ -2,7 +2,7 @@ import React from 'react'
 import { View, Text, StyleSheet } from 'react-native'
 import { SIZES } from '@constants'
 import { LinearGradient } from 'expo-linear-gradient'
-import { Calendar } from '../../ui/calendar/Calendar'
+// import { Calendar } from '../../ui/calendar/Calendar'
 
 export const Summary = () => {
 	return (
@@ -19,9 +19,7 @@ export const Summary = () => {
 				</LinearGradient>
 			</View>
 
-			<View>
-				<Calendar />
-			</View>
+			<View>{/* <Calendar /> */}</View>
 		</View>
 	)
 }

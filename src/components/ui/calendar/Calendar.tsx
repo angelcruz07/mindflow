@@ -1,68 +1,47 @@
-import React, { useEffect, useState } from 'react'
-import { View, StyleSheet } from 'react-native'
-import { CalendarList } from 'react-native-calendars'
-import * as Calendar from 'expo-calendar'
+import { View, StyleSheet, TouchableOpacity, Text } from 'react-native'
+import { Calendar } from 'react-native-calendars'
 
-export function App() {
-	const [events, setEvents] = useState<{
-		[calendarTitle: string]: Calendar.Event[]
-	}>({})
-	const [permissionStatus, setPermissionStatus] =
-		useState<Calendar.PermissionStatus | null>(null)
-
-	useEffect(() => {
-		// Solicitar permisos de calendario al cargar la aplicación
-		const requestCalendarPermissions = async () => {
-			const { status } = await Calendar.requestCalendarPermissionsAsync()
-			setPermissionStatus(status)
-		}
-
-		requestCalendarPermissions()
-	}, [])
-
-	useEffect(() => {
-		if (permissionStatus === 'granted') {
-			loadCalendarEvents()
-		}
-	}, [permissionStatus])
-
-	const loadCalendarEvents = async () => {
-		const calendars = await Calendar.getCalendarsAsync()
-		const newEvents: { [calendarTitle: string]: Calendar.Event[] } = {}
-		const startDate = new Date()
-		const endDate = new Date()
-		endDate.setMonth(endDate.getMonth() + 1) // Obtener eventos del próximo mes
-
-		for (const calendar of calendars) {
-			const calendarEvents = await Calendar.getEventsAsync(
-				[calendar.id],
-				startDate,
-				endDate
-			)
-			newEvents[calendar.title] = calendarEvents
-		}
-		setEvents(newEvents)
-	}
-
+export const CalendarApp = () => {
 	return (
-		<View style={styles.container}>
-			<CalendarList
-				current={'2024-05-07'} // fecha actual
-				pastScrollRange={50}
-				futureScrollRange={50}
-				horizontal
-				pagingEnabled
-				// markedDates={events} // marcado de eventos
-			/>
+		<View>
+			<TouchableOpacity>
+				<Calendar
+					style={styles.containerCalendar}
+					theme={{
+						backgroundColor: 'transparent',
+						calendarBackground: 'rgba(89, 89, 89, 0.3)',
+						textSectionTitleColor: '#09F8BC',
+						textSectionTitleDisabledColor: '#d9e1e8',
+						selectedDayBackgroundColor: '#09F8BC',
+						selectedDayTextColor: '#ffffff',
+						todayTextColor: '#09F8BC',
+						dayTextColor: '#fff',
+						textDisabledColor: '#615C5C',
+						dotColor: '#fff',
+						selectedDotColor: '#ffffff',
+						arrowColor: '#fff',
+						disabledArrowColor: '#d9e1e8',
+						monthTextColor: '#fff',
+						indicatorColor: 'blue',
+						textDayFontFamily: 'monospace',
+						textMonthFontFamily: 'monospace',
+						textDayHeaderFontFamily: 'monospace',
+						textDayFontWeight: '300',
+						textMonthFontWeight: 'bold',
+						textDayHeaderFontWeight: '300',
+						textDayFontSize: 16,
+						textMonthFontSize: 16,
+						textDayHeaderFontSize: 16
+					}}
+				/>
+			</TouchableOpacity>
 		</View>
 	)
 }
 
 const styles = StyleSheet.create({
-	container: {
-		flex: 1,
-		backgroundColor: '#fff',
-		justifyContent: 'center',
-		paddingTop: 50
+	containerCalendar: {
+		borderRadius: 10,
+		padding: 5
 	}
 })
