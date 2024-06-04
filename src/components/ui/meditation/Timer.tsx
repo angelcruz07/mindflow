@@ -5,6 +5,8 @@ import { MOOD } from 'data'
 import { useState, useEffect } from 'react'
 import { StylesTimer } from 'types'
 import { Ionicons, AntDesign } from '@expo/vector-icons'
+import { useContext } from 'react'
+import { MeditationContext } from '../../../context/MeditationContext'
 
 interface Mood {
 	timer: number
@@ -13,6 +15,14 @@ interface Mood {
 const DEFAULT_TIME = 300
 
 export const Timer = () => {
+	const context = useContext(MeditationContext)
+
+	if (!context) {
+		throw new Error('Timer must be used within a MeditationProvider')
+	}
+
+	const { meditationFinished, setMeditationFinished } = context
+
 	// Todo: Agregar sonido a las meditaciones
 	const [meditationTime, setMeditationTime] = useState<number | null>(null)
 	const [timer, setTimer] = useState(0)
@@ -29,14 +39,21 @@ export const Timer = () => {
 
 		if (isActive && !isPaused) {
 			intervalId = setInterval(() => {
-				setTimer((timer) => timer - 1)
+				setTimer((timer) => {
+					if (timer - 1 <= 0) {
+						setIsActive(false)
+						setMeditationFinished(true)
+						console.log('Meditación finalizada')
+					}
+					return timer - 1
+				})
 			}, 1000)
 		}
 
 		return () => {
 			clearInterval(intervalId)
 		}
-	}, [isActive, isPaused])
+	}, [isActive, isPaused, setMeditationFinished])
 
 	const handleToggleTimer = () => {
 		if (isActive) {

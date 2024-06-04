@@ -18,7 +18,7 @@ export const MOOD: Mood[] = [
 		id: 1,
 		name: 'Todos',
 		icon: <Fontisto name='fire' size={20} color='#40C794' />,
-		timer: 1200
+		timer: 5
 	},
 	{
 		id: 2,
