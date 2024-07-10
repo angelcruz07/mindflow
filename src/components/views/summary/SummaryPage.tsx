@@ -1,8 +1,8 @@
 import React from 'react'
 import { View, Text, StyleSheet, ScrollView } from 'react-native'
-import { SIZES } from '@constants'
 import { LinearGradient } from 'expo-linear-gradient'
-import { CalendarApp } from '../../ui/calendar/Calendar'
+import { CalendarApp } from '@/components/ui/'
+import { SIZES } from '@/constants'
 
 export const Summary = () => {
   return (

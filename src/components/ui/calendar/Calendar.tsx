@@ -1,8 +1,8 @@
+import { useContext } from 'react'
 import { View, StyleSheet, TouchableOpacity } from 'react-native'
 import { Calendar } from 'react-native-calendars'
-import { COLORS, SIZES } from '@constants'
-import { useContext } from 'react'
-import { MeditationContext } from '../../../context/MeditationContext'
+import { COLORS, SIZES } from '@/constants'
+import { MeditationContext } from '@/context'
 
 export const CalendarApp = () => {
   const context = useContext(MeditationContext)

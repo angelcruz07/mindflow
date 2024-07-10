@@ -1,10 +1,10 @@
 import { SafeAreaView, StyleSheet } from 'react-native'
-import { StatusBar } from 'expo-status-bar'
-import { COLORS } from '@constants'
-import { Main } from '@components/'
-import { Stack } from 'expo-router'
 import { NativeRouter } from 'react-router-native'
-import { MeditationProvider } from '../src/context/MeditationContext'
+import { StatusBar } from 'expo-status-bar'
+import { Stack } from 'expo-router'
+import { COLORS } from '@/constants'
+import { Main } from '@/components/views'
+import { MeditationProvider } from '@/context'
 
 const Home = () => {
   return (

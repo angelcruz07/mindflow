@@ -1,12 +1,11 @@
-import { StyleSheet, Text, TouchableOpacity, View, Image } from 'react-native'
+import { useState, useEffect, useContext } from 'react'
+import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import { LinearGradient } from 'expo-linear-gradient'
-import { COLORS, SIZES } from '@constants'
-import { MOOD } from 'data'
-import { useState, useEffect } from 'react'
-import { StylesTimer } from 'types'
+import { COLORS, SIZES } from '@/constants'
+import { MOOD } from '@/data'
 import { Ionicons, AntDesign } from '@expo/vector-icons'
-import { useContext } from 'react'
-import { MeditationContext } from '../../../../context/MeditationContext'
+import { MeditationContext } from '@/context'
+import { StylesTimer } from 'types'
 
 interface Mood {
   timer: number

@@ -1,7 +1,6 @@
-import React from 'react'
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native'
-import { COLORS, SIZES } from '@constants'
 import { useLocation, Link } from 'react-router-native'
+import { COLORS, SIZES } from '@/constants'
 
 // @ts-ignore
 const TopBarTab = ({ to, text }) => {
